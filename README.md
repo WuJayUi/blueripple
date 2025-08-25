@@ -2,7 +2,7 @@
 
 1.生成 SSH key
 
-ssh-keygen -t ed25519 -C "你的邮箱@example.com"
+ssh-keygen -t ed25519 -C "郵箱@example.com"
 
 
 提示 Enter file in which to save the key (/home/用户名/.ssh/id_ed25519): → 直接按 Enter
