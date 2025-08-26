@@ -1,9 +1,12 @@
 package com.blueripple.service.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.blueripple.controller.dto.CreateAccountRequest;
 import com.blueripple.entity.UserEntity;
 import com.blueripple.repository.UserRepository;
 import com.blueripple.service.UserService;
@@ -15,18 +18,20 @@ public class UserServiceImpl implements UserService{
 	private UserRepository userRepository;
 	
 	@Override
-	public String getUserName(String name) {
-	    return userRepository.findByUserName(name)
-	                         .map(UserEntity::getUserName)
-	                         .orElse("找不到使用者");
+	public List<UserEntity> getAllUser() {
+	    return userRepository.findAll();
 	}
 
 	@Override
-	public String setUserName(String name) {
+	public String setUserInfo(CreateAccountRequest request) {
 		UserEntity user = new UserEntity();
-		user.setUserName(name);
+		user.setUserName(request.getUserName());
+		user.setUserPassword(request.getUserPassword());
+		user.setBirthDay(request.getBirthDay());
+		user.setPhoneNumber(request.getPhoneNumber());
+		user.setAdress(request.getAdress());
 		userRepository.save(user);
-		return "已儲存UserName";
+		return "OK";
 	}
 
 

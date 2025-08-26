@@ -1,9 +1,13 @@
 package com.blueripple.service;
 
+import java.util.List;
+
+import com.blueripple.controller.dto.CreateAccountRequest;
+import com.blueripple.entity.UserEntity;
 
 public interface UserService {
 
-	public String getUserName(String name);
+	public List<UserEntity> getAllUser();
 	
-	public String setUserName(String name);
+	public String setUserInfo(CreateAccountRequest request);
 }
