@@ -11,13 +11,10 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Data
 public class UserEntity implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -26,5 +23,17 @@ public class UserEntity implements Serializable{
 	
 	@Column
 	private String userName;   
+	
+	@Column
+	private String userPassword;   
+	
+	@Column
+	private String birthDay;   
+	
+	@Column
+	private String phoneNumber;   
+	
+	@Column
+	private String adress;   
 	
 }
