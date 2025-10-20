@@ -10,7 +10,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ import com.blueripple.service.BannerService;
 @Service
 public class BannerServiceImpl implements BannerService{
 	
-	@Value("${file.path}")
+	@Value("${file.banner.path}")
 	public String path;
 
 	@Autowired
@@ -109,7 +108,7 @@ public class BannerServiceImpl implements BannerService{
 	            banner.setTitle(title);
 	            banner.setContent(content);
 	            // 存入 DB 的路徑改為 URL 友好的形式 (一定用 `/`)
-	            banner.setImgUrl("uploads/" + uniqueFileName);
+	            banner.setImgUrl(path +"/"+ uniqueFileName);
 	            banner.setImgName(fileName); 
 	            banner.setImgType(contentType); 
 	            banner.setLinkUrl(linkUrl);
